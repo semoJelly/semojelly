@@ -14,10 +14,10 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-  public void signupUser(User user) {
+    public void signupUser(User user) {
 
-      userRepository.save(user);
-      System.out.println("userService user=" +user);
+        userRepository.save(user);
+        System.out.println("userService user=" +user);
     }
 
     public User loginUser(String userId, String userPwd) {
@@ -25,7 +25,7 @@ public class UserService {
         User userVO = userRepository.selectUserInfo(userId, userPwd);
         return userVO;
 
-  }
+    }
 
 
 }

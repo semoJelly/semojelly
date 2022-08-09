@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+html,body,h1,h2,h3,h4 {font-family: Tahoma, "Trebuchet MS", sans-serif;}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+label {
+padding-left : 5%
+
+</style>
+</head>
+<body>
+<div class="w3-padding-16"></div>
+<div class="w3-margin-left w3-padding-16" id="product">
+        <span class="w3-xxlarge w3-padding-64" ><b>제품 한눈에 보기</b>
+        </span>
+</div>
+<div class="w3-margin-left w3-large">
+    <b class="w3-margin-left">카테고리</b>
+
+    <!--first button line -->
+
+    <div class="w3-row w3-center w3-small  w3-margin-top">
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>스낵류</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>캔디류</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>아이스크림</b></button>
+        </div>
+    </div>
+    <!--second button line -->
+    <div class="w3-row w3-center w3-small">
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>빵</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>면류</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>간편조리</b></button>
+        </div>
+    </div>
+
+
+    <!--third button line -->
+    <div class="w3-row w3-center w3-small">
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>음료</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>주류</b></button>
+        </div>
+        <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+            <button class="w3-button w3-padding-small w3-border w3-round-xlarge" style="width:100%"><b>기타</b></button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="w3-margin-top"></div>
+<!-- 최신순/인기순 dropdown-->
+<div class="w3-dropdown-click w3-right w3-margin-right w3-small">
+    <button onclick="myFunction()" class="w3-button w3-round-large"><b>신상품</b></button>
+    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="#" class="w3-bar-item w3-button"><b>인기순</b></a>
+    </div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+<!-- First Photo Grid-->
+<div class="w3-row-padding w3-center">
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+</div>
+
+<!-- Second Photo Grid-->
+<div class="w3-row-padding w3-center">
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+</div>
+<!-- Third Photo Grid-->
+<div class="w3-row-padding w3-center">
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container w3-margin-bottom">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+    <div class="w3-col s4 w3-third w3-container">
+        <img src="corn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+            <p><b>옥수수깡</b></p>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="w3-center w3-padding-32">
+        <div class="w3-bar">
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+            <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
