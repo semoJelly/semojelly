@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByUserId(String userId);
+    User findByUserId(String userId);
     List<User> findAll();
    @Query("select u from User u where u.userId=:userId and u.userPwd=:userPwd")
     User selectUserInfo(@Param("userId")String userId,@Param("userPwd")String userPwd);
