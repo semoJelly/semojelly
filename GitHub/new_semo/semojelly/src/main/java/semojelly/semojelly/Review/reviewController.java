@@ -1,17 +1,16 @@
 package semojelly.semojelly.Review;
 
+import org.springframework.web.bind.annotation.*;
 import semojelly.semojelly.User.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.lang.reflect.Member;
 
 @Controller
@@ -19,25 +18,40 @@ import java.lang.reflect.Member;
 @Slf4j
 public class reviewController {
     private BoardWriteService boardWriteService;
+    UserRepository userRepository;
+    BoardRepository boardRepository;
+    // @GetMapping("/board_write")
+    @RequestMapping(value = "/board_write", method = {RequestMethod.GET})
+    public String BoardWriter(/*User user, Board board, Model model,*/Board board , HttpServletRequest request)
+    // @SessionAttribute(name = SessionConst.LOGIN_USER, required = false)
+    //        User user, Model model
 
-    @GetMapping("/board_write")
-    public String BoardWriter(
-            @SessionAttribute(name = SessionConst.LOGIN_USER, required = false)
-                    User user, Model model
-    ){
+    {
+        HttpSession httpSession = request.getSession(true);
+        System.out.println("now login ID: " + httpSession.getAttribute("userId"));
+        System.out.println("board의 session:" + httpSession.getId());
 
-        addUser(user, model);
-        return "board_write";
+        return "reviewCreate";
+    }
+    @RequestMapping(value = "/board_write", method = {RequestMethod.POST})
+    public String BoardWriter(HttpServletRequest request, Board board){
+        HttpSession httpSession = request.getSession(true);
+        boardWriteService.reviewWrite(board, userRepository.findByUserId(httpSession.getId()));
+        return "main";
     }
 
-    @PostMapping("/board_write")
-    public String BoardWriter(@ModelAttribute Board board, @SessionAttribute(name = SessionConst.LOGIN_USER, required = false)
-            User user){
+/*
+     @RequestMapping(value = "/board_write", method = {RequestMethod.POST})
+    public String BoardWriter(HttpServletRequest request, Board board, User user)
+    //@ModelAttribute Board board, @SessionAttribute(name = SessionConst.LOGIN_USER, required = false)
+    //User user)
+    {
+        HttpSession httpSession = request.getSession(true);
+        System.out.println("Controller에서의 get User" + board.getUser());
+        boardWriteService.reviewWrite(board, board.getUser());
+        return "main";
 
-        boardWriteService.write(board, user);
-        return "redirect:/";
-
-    }
+    }*/
 
 //    @GetMapping("/board_write")
 //    public String BoardWriter(User user, Model model, HttpServletRequest request){
@@ -57,12 +71,12 @@ public class reviewController {
 //
 //    }
 
-    public void addUser(User user, Model model){
+   /* public void addUser(User user, Model model){
         if(user == null) {
             model.addAttribute("user", new User());
             return;
         }
         model.addAttribute("user", user);
         return;
-    }
+    }*/
 };

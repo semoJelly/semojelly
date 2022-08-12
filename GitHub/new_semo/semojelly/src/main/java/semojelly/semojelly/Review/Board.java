@@ -7,7 +7,7 @@ import semojelly.semojelly.User.User;
 import javax.persistence.*;
 
 @Data
-@Entity(name = "board")
+@Entity(name = "boardTBL")
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="userId")
-    private User user;
+    private User userId; //원래는 User userID;가 맞음 도저히 못하겟어서 바꿈~
 
     /*
     @OneToMany(mappedBy = "board")
@@ -30,9 +30,9 @@ public class Board {
     @ColumnDefault("0")
     private int count;
 
-    public void setUser(User findUser) {
+    /*public void setUser(User findUser) {
         user = findUser;
-    }
+    }*/
 
     /*
     @CreationTimestamp

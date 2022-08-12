@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.util.List;
 
 @Controller
@@ -23,6 +24,8 @@ public class UserController {
     @Autowired
     UserService userService;
     UserRepository userRepository;
+    HttpSession session =null;
+
 
 
     //로그인 성공
@@ -42,8 +45,12 @@ public class UserController {
             return "login";
         }
         else{
-            request.getSession().setAttribute("userId", user.getUserId());
-            return "main";
+            HttpSession httpSession=request.getSession(true);
+
+            httpSession.setAttribute("userId", user.getUserId());
+           // request.getSession().setAttribute("userId", user.getUserId());
+            System.out.println("session: " + httpSession.getId());
+            return "redirect:" + "/board_write";
         }
 
     }
