@@ -18,13 +18,16 @@ public class BoardWriteService {
     private BoardRepository boardRepository;
     private UserRepository userRepository;
     HttpServletRequest request;
-    public void reviewWrite(Board board, User user){
+
+    public void reviewWrite(Board board, String user) {
      /*   User findUser = userRepository.findByUserId((String) request.getAttribute("userId"));
         System.out.println("Service에서의 get User" + board.getUser());
         board.setUser(findUser);
         boardRepository.save(board);*/
-        HttpSession httpSession = request.getSession(true);
+        // HttpSession httpSession = request.getSession(true);
+        //board.setUserId(user);
         //board.setUserId(user);
         boardRepository.save(board);
+        System.out.println(board);
     }
 }
