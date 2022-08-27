@@ -28,19 +28,33 @@ public class reviewController {
     @RequestMapping(value = "/review_write", method = {RequestMethod.GET,RequestMethod.POST})
     public String BoardWriter(Board board , HttpServletRequest request)
     {
+        //Session 생성하는 코드 true-> 없으면 생성, false->없으면 걍 null
         HttpSession httpSession = request.getSession(true);
-        System.out.println("now login ID: " + httpSession.getAttribute("userId"));
+        
+        //로그인 한 상태의 Session
         System.out.println("board의 session:" + httpSession.getId());
+
+        //Session 으로부터 지금 로그인 한 ID 얻는 법(type은 object 여서 String으로 바꾸어 사용해야함)
+        System.out.println("now login ID: " + httpSession.getAttribute("userId"));
+        
+        //Object 형태를 String으로 Cast해서 loginId에 저장
         String loginId = (String) httpSession.getAttribute("userId");
+        
         board.setUserId(loginId);
+
+
+        //페이지 접근 씩 null으로 뜨는 오류를 막아두는 코드
         if(board.getTitle()==null&&board.getContent()==null){
             return "reviewWrite";
         }
+        
         if(board.getTitle()!=""){
             boardRepository.save(board);
+            System.out.println("post를 한 후의 board 형태 : " + board);
         }
         return "main";
     }
+
     /*@RequestMapping(value = "/review_write", method = {RequestMethod.POST})
     public String BoardWriter(HttpServletRequest request, Board board){
         HttpSession httpSession = request.getSession(true);
